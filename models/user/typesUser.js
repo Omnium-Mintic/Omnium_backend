@@ -1,6 +1,6 @@
 import { gql } from 'apollo-server-express';
 
-const typesUser = gql`
+const tiposUsuario = gql`
   type Usuario {
     _id: ID!
     nombre: String!
@@ -40,4 +40,4 @@ const typesUser = gql`
   }
 `;
 
-export { typesUser };
+export { tiposUsuario };

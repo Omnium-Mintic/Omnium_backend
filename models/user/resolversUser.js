@@ -1,8 +1,9 @@
-import { UserModel } from './user';
+import { UserModel } from './user.js';
 
-const resolversUser = {
+const resolversUsuario = {
   Query: {
     Usuarios: async (parent, args) => {
+      console.log('parent usuario', parent);
       const usuarios = await UserModel.find();
       return usuarios;
     },
@@ -51,4 +52,4 @@ const resolversUser = {
   },
 };
 
-export { resolversUser };
+export { resolversUsuario };
