@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { ProjectModel } from '../project/project.js';
-import { UserModel } from '../usuario/usuario.js';
+import { UserModel } from '../user/user.js';
 
 const { Schema, model } = mongoose;
 
