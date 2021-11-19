@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
+
 // import { Enum_Rol, Enum_EstadoUsuario } from '../enums/enums';
 
 // interface User {
@@ -30,6 +31,10 @@ const userSchema = new Schema({
       message: 'El formato del correo electrónico está malo.',
     },
   },
+  password: {
+    type: String,
+    required: true,
+  },  
   identificacion: {
     type: String,
     required: true,
@@ -54,6 +59,7 @@ const userSchema = new Schema({
     default: 'PENDIENTE',
   },
 });
+
 
 const UserModel = model('User', userSchema, 'Usuarios');
 

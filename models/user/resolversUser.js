@@ -19,6 +19,7 @@ const resolversUsuario = {
         apellido: args.apellido,
         identificacion: args.identificacion,
         correo: args.correo,
+        password: args.password,
         rol: args.rol,
       });
 
@@ -34,6 +35,7 @@ const resolversUsuario = {
         apellido: args.apellido,
         identificacion: args.identificacion,
         correo: args.correo,
+        password: args.password,
         rol: args.rol,
         estado: args.estado,
       });
