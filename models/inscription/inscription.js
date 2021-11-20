@@ -6,6 +6,17 @@ import { UserModel } from '../user/user.js';
 const { Schema, model } = mongoose;
 
 const inscriptionSchema = new Schema({
+  
+  proyecto: {
+    type: Schema.Types.ObjectId,
+    ref: ProjectModel,
+    required: true,
+  },
+  estudiante: {
+    type: Schema.Types.ObjectId,
+    ref: UserModel,
+    required: true,
+  },
   estado: {
     type: String,
     enum: ['ACEPTADO', 'RECHAZADO', 'PENDIENTE'],
@@ -19,16 +30,6 @@ const inscriptionSchema = new Schema({
   fechaEgreso: {
     type: Date,
     required: false,
-  },
-  proyecto: {
-    type: Schema.Types.ObjectId,
-    ref: ProjectModel,
-    required: true,
-  },
-  estudiante: {
-    type: Schema.Types.ObjectId,
-    ref: UserModel,
-    required: true,
   },
 });
 

@@ -5,6 +5,12 @@ import { ProjectModel } from '../project/project.js';
 const { Schema, model } = mongoose;
 
 const avanceSchema = new Schema({
+  
+  proyecto: {
+    type: Schema.Types.ObjectId,
+    ref: ProjectModel,
+    required: true,
+  },
   fecha: {
     type: Date,
     required: true,
@@ -18,11 +24,6 @@ const avanceSchema = new Schema({
       type: String,
     },
   ],
-  proyecto: {
-    type: Schema.Types.ObjectId,
-    ref: ProjectModel,
-    required: true,
-  },
   creadoPor: {
     type: Schema.Types.ObjectId,
     ref: UserModel,
