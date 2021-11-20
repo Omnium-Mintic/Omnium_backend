@@ -1,4 +1,12 @@
+import { resolversAdvance } from '../models/advance/resolversAdvance.js';
+import { resolversUser } from '../models/user/resolversUser.js';
+import { resolversProject } from '../models/project/resolversProject.js';
+import { resolversInscription } from '../models/inscription/resolversInscription.js';
 
-import { resolversUsuario } from '../models/user/resolversUser.js';
-
-export const resolvers = [ resolversUsuario ];
+export const resolvers = [
+  resolversAdvance,
+  resolversUser,
+  resolversProject,
+  resolversInscription,
+ 
+];

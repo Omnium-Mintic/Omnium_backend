@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express';
 
 const typesEnums = gql`
   enum Enum_EstadoUsuario {
@@ -31,8 +31,9 @@ const typesEnums = gql`
   }
 
   enum Enum_EstadoInscripcion {
-    ACEPTADA
-    RECHAZADA
+    ACEPTADO
+    RECHAZADO
+    PENDIENTE
   }
 `;
 

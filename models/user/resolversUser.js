@@ -1,6 +1,6 @@
 import { UserModel } from './user.js';
 
-const resolversUsuario = {
+const resolversUser = {
   Query: {
     Usuarios: async (parent, args) => {
       console.log('parent usuario', parent);
@@ -19,7 +19,6 @@ const resolversUsuario = {
         apellido: args.apellido,
         identificacion: args.identificacion,
         correo: args.correo,
-        password: args.password,
         rol: args.rol,
       });
 
@@ -30,15 +29,17 @@ const resolversUsuario = {
       return usuarioCreado;
     },
     editarUsuario: async (parent, args) => {
-      const usuarioEditado = await UserModel.findByIdAndUpdate(args._id, {
-        nombre: args.nombre,
-        apellido: args.apellido,
-        identificacion: args.identificacion,
-        correo: args.correo,
-        password: args.password,
-        rol: args.rol,
-        estado: args.estado,
-      });
+      const usuarioEditado = await UserModel.findByIdAndUpdate(
+        args._id,
+        {
+          nombre: args.nombre,
+          apellido: args.apellido,
+          identificacion: args.identificacion,
+          correo: args.correo,
+          estado: args.estado,
+        },
+        { new: true }
+      );
 
       return usuarioEditado;
     },
@@ -54,4 +55,4 @@ const resolversUsuario = {
   },
 };
 
-export { resolversUsuario };
+export { resolversUser };
