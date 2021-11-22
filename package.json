@@ -1,5 +1,5 @@
 {
-  "name": "gestion-proyectos-mintic-back",
+  "name": "omnium_backend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,7 +15,6 @@
     "express": "^4.17.1",
     "graphql": "^16.0.1",
     "mongoose": "^6.0.13",
-    "mongose": "^0.0.2-security",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   },

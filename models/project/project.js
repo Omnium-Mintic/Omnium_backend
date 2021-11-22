@@ -1,19 +1,7 @@
 import mongoose from 'mongoose';
-const { Schema, model } = mongoose;
-// import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from '../enums/enums';
-// import { ObjectiveModel } from '../objective';
 import { UserModel } from '../user/user.js';
 
-// interface Proyecto {
-//   nombre: string;
-//   presupuesto: number;
-//   fechaInicio: Date;
-//   fechaFin: Date;
-//   estado: Enum_EstadoProyecto;
-//   fase: Enum_FaseProyecto;
-//   lider: Schema.Types.ObjectId;
-//   objetivos: [{ descripcion: String; tipo: Enum_TipoObjetivo }];
-// }
+const { Schema, model } = mongoose;
 
 const projectSchema = new Schema(
   {
@@ -33,6 +21,11 @@ const projectSchema = new Schema(
       type: Date,
       required: true,
     },
+    lider: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: UserModel,
+    },
     estado: {
       type: String,
       enum: ['ACTIVO', 'INACTIVO'],
@@ -43,11 +36,7 @@ const projectSchema = new Schema(
       enum: ['INICIADO', 'DESARROLLO', 'TERMINADO', 'NULO'],
       default: 'NULO',
     },
-    lider: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: UserModel,
-    },
+    
     objetivos: [
       {
         descripcion: {
@@ -64,16 +53,24 @@ const projectSchema = new Schema(
   },
   {
     toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
-    toObject: { virtuals: true },
+    toObject: { virtuals: true }, // So `console.log()` and other functions that use `toObject()` include virtuals
   }
 );
 
-projectSchema.virtual('advance', {
+
+projectSchema.virtual('inscripciones', {
+  ref: 'Inscripcion',
+  localField: '_id',
+  foreignField: 'proyecto',
+});
+
+projectSchema.virtual('avances', {
   ref: 'Avance',
   localField: '_id',
   foreignField: 'proyecto',
-}); 
+});
 
-const ProjectModel = model('Proyecto', projectSchema, 'Proyectos');
+
+const ProjectModel = model('Proyecto', projectSchema,'Proyectos');
 
 export { ProjectModel };
