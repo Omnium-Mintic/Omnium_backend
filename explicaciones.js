@@ -7,6 +7,7 @@ import { ObjectiveModel } from './models/objective';
 
 // METODOLOGÍA ONE TO MANY #1
 // Luis F
+// 24/11
 const crearProyectoConObjetivos1 = async () => {
   const usuarioInicial = await UserModel.create({
     nombre: 'Daniel',
