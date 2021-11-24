@@ -6,6 +6,7 @@ import { ObjectId } from 'mongoose';
 import { ObjectiveModel } from './models/objective';
 
 // METODOLOGÍA ONE TO MANY #1
+// lF
 const crearProyectoConObjetivos1 = async () => {
   const usuarioInicial = await UserModel.create({
     nombre: 'Daniel',
