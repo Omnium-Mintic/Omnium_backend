@@ -10,12 +10,10 @@ const typesUser = gql`
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
   }
-
   type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
   }
-
   type Mutation {
     crearUsuario(
       nombre: String!
@@ -24,6 +22,7 @@ const typesUser = gql`
       correo: String!
       rol: Enum_Rol!
       estado: Enum_EstadoUsuario
+      password: String!
     ): Usuario
 
     editarUsuario(

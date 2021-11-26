@@ -21,11 +21,6 @@ const projectSchema = new Schema(
       type: Date,
       required: true,
     },
-    lider: {
-      type: Schema.Types.ObjectId,
-      required: true,
-      ref: UserModel,
-    },
     estado: {
       type: String,
       enum: ['ACTIVO', 'INACTIVO'],
@@ -36,7 +31,11 @@ const projectSchema = new Schema(
       enum: ['INICIADO', 'DESARROLLO', 'TERMINADO', 'NULO'],
       default: 'NULO',
     },
-    
+    lider: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: UserModel,
+    },    
     objetivos: [
       {
         descripcion: {
@@ -57,15 +56,14 @@ const projectSchema = new Schema(
   }
 );
 
-
-projectSchema.virtual('inscripciones', {
-  ref: 'Inscripcion',
+projectSchema.virtual('avances', {
+  ref: 'Avance',
   localField: '_id',
   foreignField: 'proyecto',
 });
 
-projectSchema.virtual('avances', {
-  ref: 'Avance',
+projectSchema.virtual('inscripciones', {
+  ref: 'Inscripcion',
   localField: '_id',
   foreignField: 'proyecto',
 });
