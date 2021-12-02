@@ -20,12 +20,13 @@ const resolversUser = {
         identificacion: args.identificacion,
         correo: args.correo,
         rol: args.rol,
+        password: args.password,
       });
 
-      if (Object.keys(args).includes('estado')) {
+     /*  if (Object.keys(args).includes('estado')) {
         usuarioCreado.estado = args.estado;
       }
-
+ */
       return usuarioCreado;
     },
     editarUsuario: async (parent, args) => {
