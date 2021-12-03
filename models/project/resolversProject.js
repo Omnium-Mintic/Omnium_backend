@@ -28,7 +28,11 @@ const resolversProject = {
     editarProyecto: async (parent, args) => {
       const proyectoEditado = await ProjectModel.findOneAndUpdate(
         args._id,
-        { ...args.editProyecto },
+        { nombre: args.nombre,
+          presupuesto: args.presupuesto,
+          fase: args.fase,
+          estado: args.estado,
+         },
         { new: true }
       );
       return proyectoEditado;
