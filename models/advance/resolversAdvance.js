@@ -1,4 +1,4 @@
-import { AdvanceModel } from './advance.js';
+  import { AdvanceModel } from './advance.js';
 
 const resolversAdvance = {
   Query: {
@@ -23,6 +23,17 @@ const resolversAdvance = {
       });
       return avanceCreado;
     },
+    editarAvance: async (parents, args) => {
+      const avanceEditado = await AdvanceModel.findOneAndUpdate(
+        args._id,
+        {
+          descripcion: args.descripcion,
+          observaciones: args.observaciones
+        },
+        { new: true }
+      );
+      return avanceEditado;
+    }
   },
 };
 
