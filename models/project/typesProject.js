@@ -54,8 +54,8 @@ const typesProject = gql`
       _id: String!
       nombre: String
       presupuesto: Float
-      fase: Enum_FaseProyecto!
-      estado: Enum_EstadoProyecto!
+      fase: Enum_FaseProyecto
+      estado: Enum_EstadoProyecto
     ): Proyecto
     crearObjetivo(idProyecto: String!, campos: crearObjetivo!): Proyecto
     editarObjetivo(
