@@ -11,9 +11,18 @@ const typesUser = gql`
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
   }
+  type Perfil {
+    _id: ID!
+    nombre: String!
+    apellido: String!
+    identificacion: String!
+    correo: String!
+    rol: Enum_Rol!
+  }
   type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
+    Perfil(_id: String!): Perfil
   }
   type Mutation {
     crearUsuario(
