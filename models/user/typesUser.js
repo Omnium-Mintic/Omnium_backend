@@ -31,7 +31,6 @@ const typesUser = gql`
       identificacion: String!
       correo: String!
       rol: Enum_Rol!
-      estado: Enum_EstadoUsuario
       password: String!
     ): Usuario
 
@@ -41,7 +40,6 @@ const typesUser = gql`
       apellido: String!
       identificacion: String!
       correo: String!
-      estado: Enum_EstadoUsuario!
     ): Usuario
     
     editarPerfil(
@@ -51,6 +49,12 @@ const typesUser = gql`
       identificacion: String!
       correo: String!
     ): Perfil
+    
+    editarPassword(
+      _id: String!
+      password: String!
+    ): Perfil
+    
 
     eliminarUsuario(_id: String, correo: String): Usuario
   }
