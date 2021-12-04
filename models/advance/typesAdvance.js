@@ -23,6 +23,7 @@ const typesAdvance = gql`
       observaciones: String
     ): Avance
     editarAvance(
+      _id: String!,
       descripcion: String,
       observaciones: String
     ): Avance
