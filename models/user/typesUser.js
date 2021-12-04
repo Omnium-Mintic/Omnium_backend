@@ -43,6 +43,14 @@ const typesUser = gql`
       correo: String!
       estado: Enum_EstadoUsuario!
     ): Usuario
+    
+    editarPerfil(
+      _id: String!
+      nombre: String!
+      apellido: String!
+      identificacion: String!
+      correo: String!
+    ): Perfil
 
     eliminarUsuario(_id: String, correo: String): Usuario
   }
