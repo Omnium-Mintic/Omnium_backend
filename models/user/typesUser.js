@@ -1,5 +1,6 @@
 import { gql } from 'apollo-server-express';
 
+
 const typesUser = gql`
   type Usuario {
     _id: ID!
@@ -8,7 +9,7 @@ const typesUser = gql`
     identificacion: String!
     correo: String!
     password: String!
-    rol: Enum_Rol!
+    rol:Enum_Rol!
     estado: Enum_EstadoUsuario
   }
   type Perfil {
