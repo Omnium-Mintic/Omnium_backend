@@ -15,6 +15,8 @@ const validateToken = (token) => {
       }
     });
     console.log(verification, token);
+    const myTokenData = jwt.decode(token)
+    console.log("You are", myTokenData.nombre, "/", myTokenData.identificacion, "/", myTokenData.correo,"/", myTokenData.rol)
     return verification;
   }
 };
