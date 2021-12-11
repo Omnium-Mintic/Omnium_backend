@@ -68,10 +68,12 @@ const resolversUser = {
       return perfilEditado;
     },
     editarPassword: async (parent, args) => {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(args.password, salt);
       const passwordEditado = await UserModel.findByIdAndUpdate(
         args._id,
         {
-          password: args.password
+          password: hashedPassword
         },
         { new: true }
       );
