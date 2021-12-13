@@ -74,6 +74,19 @@ const resolversUser = {
 
       return perfilEditado;
     },
+<<<<<<< HEAD
+=======
+    editarPassword: async (parent, args) => {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(args.password, salt);
+      const passwordEditado = await UserModel.findByIdAndUpdate(
+        args._id,
+        {
+          password: hashedPassword
+        },
+        { new: true }
+      );
+>>>>>>> 541acdc3e05795c0a8784cd0b3366bcdbd03eb19
 
     eliminarUsuario: async (parent, args) => {
       if (Object.keys(args).includes("_id")) {
