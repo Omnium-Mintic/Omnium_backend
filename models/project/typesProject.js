@@ -31,7 +31,7 @@ const typesProject = gql`
     fechaFin: Date
     estado: Enum_EstadoProyecto!
     fase: Enum_FaseProyecto!
-    lider: [Usuario]
+    lider: Usuario!
     objetivos: [Objetivo]
     avances: [Avance]
     inscripciones: [Inscripcion]
