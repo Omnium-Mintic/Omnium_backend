@@ -16,6 +16,7 @@ const resolversUser = {
     },
     Perfil: async (parent, args) => {
       const perfil = await UserModel.findOne({ _id: args._id });
+      console.log
       return perfil;
     },
 
@@ -73,23 +74,9 @@ const resolversUser = {
       );
 
       return perfilEditado;
-    },
-<<<<<<< HEAD
-=======
-
-    editarPassword: async (parent, args) => {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(args.password, salt);
-      const passwordEditado = await UserModel.findByIdAndUpdate(
-        args._id,
-        {
-          password: hashedPassword
-        },
-        { new: true }
-      );
-
->>>>>>> 18a6e05ef9751ece6b7ae83762ca39a9d5cefd80
-
+    },    
+    
+    
     eliminarUsuario: async (parent, args) => {
       if (Object.keys(args).includes("_id")) {
         const usuarioEliminado = await UserModel.findOneAndDelete({

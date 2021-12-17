@@ -4,12 +4,12 @@ import { InscriptionModel } from '../inscription/inscription.js';
 
 const resolversProject = {
   Proyecto: {
-/*     lider: async (parent, args, context) => {
+     lider: async (parent, args, context) => {
       const usr = await UserModel.findOne({
         _id: parent.lider.toString(),
       });
       return usr;
-    }, */
+    }, 
     inscripciones: async (parent, args, context) => {
       const inscripciones = await InscriptionModel.find({
         proyecto: parent._id,
@@ -19,10 +19,22 @@ const resolversProject = {
   },
   Query: {
     Proyectos: async (parent, args, context) => {
+      if (context.userData) {
+        if (context.userData.rol === 'LIDER') {
+          const proyectos = await ProjectModel.find({ lider: context.userData._id });
+          console.log('es lider de', proyectos);
+          return proyectos;
+        }
+      }
       const proyectos = await ProjectModel.find();
       return proyectos;
     },
   },
+    /* Proyectos: async (parent, args, context) => {
+      const proyectos = await ProjectModel.find();
+      return proyectos;
+    },
+  }, */
   Mutation: {
     crearProyecto: async (parent, args, context) => {
       const proyectoCreado = await ProjectModel.create({
